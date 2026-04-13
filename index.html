@@ -7,15 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --gold-accent: #b89c6c; /* 哑光金，体现高级感 */
-            --deep-charcoal: #121212; /* 深灰黑，比纯黑更有质感 */
-            --off-white: #fafafa; /* 柔和白 */
+            --gold-accent: #b89c6c; 
+            --deep-charcoal: #121212; 
+            --off-white: #fafafa; 
             --text-main: #333333;
             --text-sub: #777777;
             --border-color: #eaeaea;
         }
 
-        /* 基础重置 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: 'Noto Sans JP', sans-serif; 
@@ -26,7 +25,6 @@
             overflow-x: hidden;
         }
 
-        /* 标题样式 */
         h1, h2, h3, h4 { 
             font-family: 'Playfair Display', serif; 
             font-weight: 400; 
@@ -37,93 +35,65 @@
 
         .container { max-width: 1300px; margin: 0 auto; padding: 0 50px; }
         
-        /* Navigation */
         nav { padding: 40px 0; border-bottom: 1px solid var(--border-color); background: #fff; position: sticky; top: 0; z-index: 1000; }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 500; letter-spacing: 0.4em; color: var(--deep-charcoal); text-decoration: none; }
         .nav-meta { font-size: 0.75rem; color: var(--gold-accent); letter-spacing: 0.15em; }
 
-        /* Hero Header */
         header { padding: 150px 0; text-align: center; background-color: var(--off-white); margin-bottom: 100px; position: relative; }
         header::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 80px; background: var(--border-color); }
-        header h1 { font-size: 3.5rem; font-weight: 400; letter-spacing: 0.25em; margin-bottom: 25px; line-height: 1.2; }
-        header p { color: var(--gold-accent); letter-spacing: 0.3em; font-size: 0.95rem; font-weight: 400; }
+        header h1 { font-size: 3.5rem; letter-spacing: 0.25em; margin-bottom: 25px; line-height: 1.2; }
+        header p { color: var(--gold-accent); letter-spacing: 0.3em; font-size: 0.95rem; }
 
-        /* Section Common */
         section { padding: 120px 0; border-bottom: 1px solid var(--border-color); }
         .section-title { font-size: 2.2rem; text-align: center; margin-bottom: 90px; color: var(--gold-accent); }
         .section-sub { font-size: 0.8rem; text-align: center; color: var(--text-sub); margin-top: -80px; margin-bottom: 90px; letter-spacing: 0.1em; }
 
-        /* CEO Profile */
         .profile-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 100px; align-items: center; }
         .ceo-img-container { position: relative; }
         .ceo-img { width: 100%; height: auto; display: block; filter: contrast(1.02); }
         .ceo-img-container::before { content: ''; position: absolute; top: 20px; left: 20px; width: 100%; height: 100%; border: 1px solid var(--gold-accent); z-index: -1; }
-        .ceo-text h3 { font-size: 1.5rem; margin-bottom: 35px; color: var(--deep-charcoal); letter-spacing: 0.1em; }
+        .ceo-text h3 { font-size: 1.5rem; margin-bottom: 35px; letter-spacing: 0.1em; }
         .ceo-text p { font-size: 1.05rem; margin-bottom: 25px; text-align: justify; color: #444; font-weight: 300; }
 
-        /* Philosophy */
         .philosophy { background-color: var(--deep-charcoal); color: #fff; text-align: center; padding: 160px 0; border: none; }
         .philosophy blockquote { font-size: 2rem; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 40px; color: #fff; font-family: 'Playfair Display', serif; font-style: italic;}
         .philosophy p { font-size: 1rem; color: #ccc; letter-spacing: 0.2em; font-weight: 300; }
 
-        /* Gallery (Fixed Image Load) */
-        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 50px; }
-        .gallery-item { position: relative; overflow: hidden; }
-        .gallery-img { width: 100%; height: auto; display: block; transition: transform 0.6s ease; filter: grayscale(20%); }
-        .gallery-item:hover .gallery-img { transform: scale(1.03); filter: grayscale(0%); }
-        .gallery-caption { position: absolute; bottom: 20px; left: 20px; color: #fff; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; background: rgba(0,0,0,0.5); padding: 5px 10px; }
+        /* Gallery Grid - Expanded to 4 items */
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; }
+        .gallery-item { position: relative; overflow: hidden; height: 400px; }
+        .gallery-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; filter: grayscale(20%); }
+        .gallery-item:hover .gallery-img { transform: scale(1.05); filter: grayscale(0%); }
+        .gallery-caption { position: absolute; bottom: 30px; left: 30px; color: #fff; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; background: rgba(0,0,0,0.6); padding: 10px 20px; border-left: 2px solid var(--gold-accent); }
 
-        /* Services */
         .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
-        .service-item { padding: 50px; border: 1px solid var(--border-color); background: #fff; transition: 0.5s ease; }
-        .service-item:hover { border-color: var(--gold-accent); box-shadow: 0 10px 30px rgba(184, 156, 108, 0.1); }
-        .service-item h4 { font-size: 1.2rem; margin-bottom: 25px; color: var(--gold-accent); letter-spacing: 0.1em; }
+        .service-item { padding: 50px; border: 1px solid var(--border-color); transition: 0.5s ease; }
+        .service-item:hover { border-color: var(--gold-accent); box-shadow: 0 10px 30px rgba(184, 156, 108, 0.1); transform: translateY(-5px); }
+        .service-item h4 { font-size: 1.2rem; margin-bottom: 25px; color: var(--gold-accent); }
         .service-item p { font-size: 0.95rem; color: var(--text-sub); font-weight: 300; }
 
-        /* --- Reservation Form (NEW: REPLACED EMAIL) --- */
+        /* New Section: Awards & Media */
+        .awards-list { list-style: none; max-width: 800px; margin: 0 auto; }
+        .awards-list li { padding: 25px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .awards-year { color: var(--gold-accent); font-family: 'Playfair Display', serif; font-size: 1.2rem; }
+        .awards-title { font-weight: 400; color: var(--text-main); letter-spacing: 0.1em; }
+
         .reservation-section { background-color: var(--off-white); border: none; }
         .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 80px; border: 1px solid var(--border-color); }
         .form-group { margin-bottom: 35px; }
-        .form-label { display: block; font-size: 0.85rem; color: var(--text-sub); letter-spacing: 0.1em; margin-bottom: 10px; text-transform: uppercase; }
-        .form-input, .form-textarea { 
-            width: 100%; 
-            padding: 15px; 
-            border: 1px solid var(--border-color); 
-            font-family: 'Noto Sans JP', sans-serif; 
-            font-size: 1rem; 
-            font-weight: 300;
-            color: var(--deep-charcoal);
-            background-color: var(--off-white);
-        }
+        .form-label { display: block; font-size: 0.85rem; color: var(--text-sub); letter-spacing: 0.1em; margin-bottom: 10px; }
+        .form-input, .form-textarea { width: 100%; padding: 15px; border: 1px solid var(--border-color); font-size: 1rem; color: var(--deep-charcoal); background-color: var(--off-white); }
         .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--gold-accent); background-color: #fff; }
         .form-textarea { height: 150px; resize: vertical; }
-        
-        .btn-submit { 
-            display: block; 
-            width: 100%; 
-            padding: 20px; 
-            background: var(--deep-charcoal); 
-            color: #fff; 
-            border: 1px solid var(--deep-charcoal);
-            font-family: 'Noto Sans JP', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.3em; 
-            font-size: 1rem; 
-            font-weight: 400;
-            cursor: pointer;
-            transition: 0.4s ease;
-        }
+        .btn-submit { display: block; width: 100%; padding: 20px; background: var(--deep-charcoal); color: #fff; border: 1px solid var(--deep-charcoal); letter-spacing: 0.3em; cursor: pointer; transition: 0.4s ease; }
         .btn-submit:hover { background: transparent; color: var(--deep-charcoal); }
 
-        /* Footer */
         footer { padding: 100px 0; text-align: center; font-size: 0.85rem; color: var(--text-sub); letter-spacing: 0.15em; border-top: 1px solid var(--border-color); background: #fff;}
-        footer p { margin-bottom: 10px; }
-
-        /* 移动端适配 */
+        
         @media (max-width: 1000px) { 
             .profile-grid, .service-grid, .gallery-grid { grid-template-columns: 1fr; gap: 50px; }
-            .form-container { padding: 40px; }
+            .awards-list li { flex-direction: column; align-items: flex-start; gap: 10px; }
             header h1 { font-size: 2.5rem; }
             .container { padding: 0 20px; }
         }
@@ -134,7 +104,7 @@
     <nav>
         <div class="container nav-content">
             <a href="#" class="logo">SASAKI DESIGN</a>
-            <div class="nav-meta">BESPOKE INTERIOR & ASSET STRATEGY | TOKYO • FUKUOKA</div>
+            <div class="nav-meta">BESPOKE INTERIOR & ASSET STRATEGY</div>
         </div>
     </nav>
 
@@ -153,30 +123,58 @@
                 </div>
                 <div class="ceo-text">
                     <h3>代表：佐々木 桜 (SAKURA SASAKI)</h3>
-                    <p>ハイエンド空间デザイナーとして20年のキャリアを積み、現在は金融工学を用いた資産形成コンサルティングを融合。居住空間を「消費」ではなく「投資」と捉える独自の視点で、選ばれたエグゼクティブにのみサービスを提供しています。</p>
-                    <p>福岡大濠公園近邻に拠点を置き、静寂の中に潜む真のラグジュアリーを追求し続けています。</p>
+                    <p>ハイエンド空間デザイナーとして20年のキャリアを積み、現在は金融工学を用いた資産形成コンサルティングを融合。居住空間を「消費」ではなく「投資」と捉える独自の視点で、選ばれたエグゼクティブにのみサービスを提供しています。</p>
+                    <p>福岡大濠公園近隣に拠点を置き、静寂の中に潜む真のラグジュアリーを追求し続けています。</p>
                 </div>
             </div>
         </section>
 
-        <div class="philosophy container Common">
-            <h2>PHILOSOPHY | 理念</h2>
-            <blockquote>「空間の品格は、住む人の知性と資産の反映である」</blockquote>
-            <p>私たちは、美学と経済的合理性の完璧な均衡を目指します。無駄を削ぎ落としたミニマリズムこそが、最も贅沢な答えであると信じています。</p>
+        <div class="philosophy">
+            <div class="container">
+                <h2>PHILOSOPHY | 理念</h2>
+                <blockquote>「空間の品格は、住む人の知性と資産の反映である」</blockquote>
+                <p>私たちは、美学と経済的合理性の完璧な均衡を目指します。無駄を削ぎ落としたミニマリズムこそが、最も贅沢な答えであると信じています。</p>
+            </div>
         </div>
 
         <section id="gallery" class="container">
             <h2 class="section-title">PORTFOLIO | 作品集</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="High-end Interior 1" class="gallery-img">
-                    <div class="gallery-caption">Ohori Penthouse</div>
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Ohori Penthouse" class="gallery-img">
+                    <div class="gallery-caption">Ohori Penthouse | Fukuoka</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedbae5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="High-end Interior 2" class="gallery-img">
-                    <div class="gallery-caption">Tokyo Modern Villa</div>
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Tokyo Villa" class="gallery-img">
+                    <div class="gallery-caption">Minato Villa | Tokyo</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Kyoto Retreat" class="gallery-img">
+                    <div class="gallery-caption">Zen Retreat | Kyoto</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Karuizawa Residence" class="gallery-img">
+                    <div class="gallery-caption">Forest Residence | Karuizawa</div>
                 </div>
             </div>
+        </section>
+
+        <section id="awards" class="container">
+            <h2 class="section-title">AWARDS & MEDIA | 受賞歴と掲載</h2>
+            <ul class="awards-list">
+                <li>
+                    <span class="awards-year">2025</span>
+                    <span class="awards-title">JAPAN INTERIOR DESIGN AWARDS - Gold Prize</span>
+                </li>
+                <li>
+                    <span class="awards-year">2024</span>
+                    <span class="awards-title">VOGUE JAPAN - "The Women Shaping Future Spaces"</span>
+                </li>
+                <li>
+                    <span class="awards-year">2022</span>
+                    <span class="awards-title">FINANCIAL TIMES - "Asset Architecture in Modern Asia"</span>
+                </li>
+            </ul>
         </section>
 
         <section id="services" class="container">
@@ -184,11 +182,11 @@
             <div class="service-grid">
                 <div class="service-item">
                     <h4>INTERIOR DESIGN</h4>
-                    <p>富裕層向けの住宅・別荘の設計。光と影、素材の対話を重んじ、唯一无二の空間を創造します。</p>
+                    <p>富裕層向けの住宅・別荘の設計。光と影、素材の対話を重んじ、唯一無二の空間を創造します。</p>
                 </div>
                 <div class="service-item">
                     <h4>ASSET STRATEGY</h4>
-                    <p>不动产取得からリノベーションを通じた価値の最大化。金融工学に基づいたポートフォリオ支援。</p>
+                    <p>不動産取得からリノベーションを通じた価値の最大化。金融工学に基づいたポートフォリオ支援。</p>
                 </div>
                 <div class="service-item">
                     <h4>PRIVATE SALON</h4>
@@ -197,32 +195,34 @@
             </div>
         </section>
 
-        <section id="contact" class="reservation-section Common container">
-            <h2 class="section-title">RESERVATION | 完全予約制</h2>
-            <p class="section-sub">新規のコンサルティングは、ご紹介、または厳正な審査を通过された方のみ承っております。</p>
-            <div class="form-container">
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label class="form-label" for="name">NAME | お名前 (必須)</label>
-                        <input type="text" id="name" name="name" class="form-input" required placeholder="佐々木 太郎">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="contact_info">CONTACT | ご連絡先 (Email/Phone) (必須)</label>
-                        <input type="text" id="contact_info" name="contact_info" class="form-input" required placeholder="example@email.com / 090-0000-0000">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="message">MESSAGE | お問い合わせ内容 (任意)</label>
-                        <textarea id="message" name="message" class="form-textarea" placeholder="ご紹介者様のお名前や、ご相談内容の概要をご記入ください。"></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">SUBMIT RESERVATION</button>
-                </form>
+        <section id="contact" class="reservation-section">
+            <div class="container">
+                <h2 class="section-title">RESERVATION | 完全予約制</h2>
+                <p class="section-sub">新規のコンサルティングは、ご紹介、または厳正な審査を通過された方のみ承っております。</p>
+                <div class="form-container">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label class="form-label" for="name">NAME | お名前 (必須)</label>
+                            <input type="text" id="name" name="name" class="form-input" required placeholder="例: 佐々木 太郎">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="contact_info">CONTACT | ご連絡先 (必須)</label>
+                            <input type="text" id="contact_info" name="contact_info" class="form-input" required placeholder="Email または 電話番号">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">MESSAGE | ご紹介者様・ご相談内容</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="詳細をご記入ください。"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">SUBMIT RESERVATION</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; SASAKI DESIGN STUDIO. ALL RIGHTS RESERVED.</p>
+            <p>&copy; 2026 SASAKI DESIGN STUDIO. ALL RIGHTS RESERVED.</p>
             <p>LOCATION: OHORI PARK, FUKUOKA JAPAN | BY APPOINTMENT ONLY</p>
         </div>
     </footer>
