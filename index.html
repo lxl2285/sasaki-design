@@ -3,122 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SASAKI DESIGN STUDIO | 究極の美と資産の融合</title>
+    <title>SASAKI DESIGN STUDIO | 佐々木デザイン事務所</title>
     <style>
-        :root { --bg-color: #ffffff; --text-color: #1a1a1a; --accent-color: #888888; --border-color: #eeeeee; }
+        :root { 
+            --gold: #c5a059; 
+            --charcoal: #1a1a1a; 
+            --light-grey: #f8f8f8; 
+            --text: #333333;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: "Hiragino Mincho ProN", "MS Mincho", serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.8; -webkit-font-smoothing: antialiased; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        body { 
+            font-family: "Playfair Display", "Hiragino Mincho ProN", serif; 
+            background-color: #fff; 
+            color: var(--charcoal); 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
         
         /* Navigation */
-        nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); }
-        .logo { font-size: 1.2rem; letter-spacing: 0.3em; font-weight: 400; }
+        nav { padding: 50px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+        .logo { font-size: 1.5rem; letter-spacing: 0.4em; font-weight: 300; }
 
-        /* Header */
-        header { padding: 100px 0; text-align: center; }
-        header h1 { font-size: 2.5rem; font-weight: 200; letter-spacing: 0.2em; margin-bottom: 20px; }
-        header p { color: var(--accent-color); letter-spacing: 0.1em; font-size: 0.9rem; }
+        /* Hero */
+        header { padding: 120px 0; text-align: center; background: var(--light-grey); margin-bottom: 80px; }
+        header h1 { font-size: 3rem; font-weight: 200; letter-spacing: 0.25em; margin-bottom: 20px; }
+        header p { color: var(--gold); letter-spacing: 0.2em; font-size: 0.9rem; font-weight: 400; }
 
-        section { padding: 100px 0; border-bottom: 1px solid var(--border-color); }
-        h2 { font-size: 1.5rem; font-weight: 300; letter-spacing: 0.2em; margin-bottom: 60px; text-align: center; }
+        section { padding: 120px 0; }
+        h2 { font-size: 1.8rem; font-weight: 300; letter-spacing: 0.3em; margin-bottom: 80px; text-align: center; color: var(--gold); }
 
         /* CEO Profile */
-        .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .ceo-img { width: 100%; height: auto; object-fit: cover; filter: contrast(1.05); }
-        .ceo-text h3 { font-size: 1.2rem; margin-bottom: 30px; border-left: 2px solid var(--text-color); padding-left: 15px; }
-        .ceo-text p { font-size: 0.95rem; margin-bottom: 20px; text-align: justify; }
+        .profile-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; align-items: center; }
+        .ceo-img { width: 100%; height: auto; box-shadow: 20px 20px 0px var(--light-grey); }
+        .ceo-text h3 { font-size: 1.4rem; margin-bottom: 30px; font-weight: 400; color: var(--gold); }
+        .ceo-text p { font-size: 1rem; margin-bottom: 25px; text-align: justify; color: #555; }
 
-        /* Philosophy Section (New) */
-        .philosophy-content { text-align: center; max-width: 700px; margin: 0 auto; }
-        .philosophy-content blockquote { font-size: 1.1rem; font-style: italic; margin-bottom: 30px; color: #333; }
+        /* Services */
+        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .service-item { padding: 40px; border: 1px solid #f0f0f0; transition: 0.5s ease; position: relative; overflow: hidden; }
+        .service-item:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .service-item h4 { font-size: 1.1rem; margin-bottom: 20px; letter-spacing: 0.1em; color: var(--gold); }
+        .service-item p { font-size: 0.9rem; color: #777; }
 
-        /* Projects Grid */
-        .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .project-card { border: 1px solid var(--border-color); padding: 30px; transition: 0.4s; }
-        .project-card:hover { background: #f9f9f9; }
-        .project-card h4 { font-size: 1rem; margin-bottom: 15px; letter-spacing: 0.1em; }
-        .project-card p { font-size: 0.8rem; color: var(--accent-color); }
+        /* Philosophy */
+        .philosophy { background: var(--charcoal); color: #fff; text-align: center; padding: 150px 0; }
+        .philosophy blockquote { font-size: 1.8rem; font-weight: 200; letter-spacing: 0.1em; margin-bottom: 40px; color: var(--gold); }
 
-        /* Contact (New) */
-        .contact-box { text-align: center; padding: 60px; background: #fdfdfd; }
-        .btn { display: inline-block; padding: 15px 40px; border: 1px solid var(--text-color); text-decoration: none; color: var(--text-color); transition: 0.3s; margin-top: 30px; letter-spacing: 0.2em; font-size: 0.8rem; }
-        .btn:hover { background: var(--text-color); color: white; }
+        /* Contact Section */
+        .contact-section { text-align: center; padding: 150px 0; background: var(--light-grey); }
+        .contact-section h2 { margin-bottom: 30px; }
+        .btn-contact { 
+            display: inline-block; 
+            padding: 20px 60px; 
+            background: var(--charcoal); 
+            color: #fff; 
+            text-decoration: none; 
+            letter-spacing: 0.3em; 
+            font-size: 0.9rem; 
+            transition: 0.4s;
+            border: 1px solid var(--charcoal);
+        }
+        .btn-contact:hover { background: transparent; color: var(--charcoal); }
 
-        footer { padding: 60px 0; text-align: center; font-size: 0.7rem; color: var(--accent-color); letter-spacing: 0.1em; }
+        footer { padding: 80px 0; text-align: center; font-size: 0.8rem; color: #999; letter-spacing: 0.15em; border-top: 1px solid #eee; }
 
-        @media (max-width: 768px) { .profile-grid, .project-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .profile-grid, .service-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <nav class="container">
         <div class="logo">SASAKI DESIGN</div>
-        <div style="font-size: 0.8rem;">EST. 2006</div>
+        <div style="font-size: 0.7rem; color: var(--gold);">TOKYO | FUKUOKA</div>
     </nav>
 
-    <header class="container">
-        <h1>SASAKI DESIGN STUDIO</h1>
-        <p>福 岡 大 濠 公 園  |  空 間 と 資 産 の 審 美 眼</p>
+    <header>
+        <div class="container">
+            <h1>SASAKI DESIGN STUDIO</h1>
+            <p>ESTHETIC INTELLIGENCE & FINANCIAL WISDOM</p>
+        </div>
     </header>
 
-    <main class="container">
-        <section id="about">
+    <main>
+        <section class="container">
             <div class="profile-grid">
-                <img src="sakura.jpg" alt="CEO 佐々木 桜" class="ceo-img">
+                <img src="sakura.jpg" alt="SAKURA SASAKI" class="ceo-img">
                 <div class="ceo-text">
-                    <h3>代表：佐々木 樱 (Sakura Sasaki)</h3>
-                    <p>ハイエンド空間デザイナーとして20年のキャリアを積み、現在は金融工学を用いた資産形成コンサルティングを融合。居住空間を「消費」ではなく「投資」と捉える独自の視点で、選ばれたエグゼクティブにのみサービスを提供しています。</p>
-                    <p>福岡大濠公園近隣に拠点を置き、静寂の中に潜む真のラグジュアリーを追求し続けています。</p>
+                    <h3>代表：佐々木 桜 (SAKURA SASAKI)</h3>
+                    <p>20年のキャリアを持つ空間デザイナー。私の仕事は、単に美しい部屋を作ることではありません。それは、クライアントの品格を可視化し、資産価値を永続させる「芸術」の構築です。</p>
+                    <p>金融工学を背景に持つ唯一無二のコンサルティングで、あなたのライフスタイルに究極の調和をもたらします。</p>
                 </div>
             </div>
         </section>
 
-        <section id="philosophy">
-            <h2>PHILOSOPHY | 理念</h2>
-            <div class="philosophy-content">
-                <blockquote>「空間の品格は、住む人の知性と資産の反映である」</blockquote>
-                <p>私たちは、美学と経済的合理性の完璧な均衡を目指します。無駄を削ぎ落としたミニマリズムこそが、最も贅沢な答えであると信じています。</p>
+        <div class="philosophy">
+            <div class="container">
+                <blockquote>"Less is not just more, it's everything."</blockquote>
+                <p style="letter-spacing: 0.2em; font-weight: 200;">静寂の中にこそ、真の豊かさが宿る。</p>
+            </div>
+        </div>
+
+        <section class="container">
+            <h2>SERVICE PORTFOLIO | 業務領域</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h4>ARCHITECTURAL DESIGN</h4>
+                    <p>大濠公園を一望するペントハウスから、都心の隠れ家まで。光、影、素材を操るハイエンド設計。</p>
+                </div>
+                <div class="service-item">
+                    <h4>ASSET MANAGEMENT</h4>
+                    <p>不動産取得からリノベーションを通じた価値の最大化。金融工学に基づいたポートフォリオ支援。</p>
+                </div>
+                <div class="service-item">
+                    <h4>PRIVATE NETWORK</h4>
+                    <p>各界のエグゼクティブにのみ許された、医療・法务・芸術の独占的なパートナーシップ。</p>
+                </div>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>CORE PROJECTS | 業務内容</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h4>INTERIOR DESIGN</h4>
-                    <p>富裕層向けの住宅・別荘の設計。光と影、素材の対話を重んじます。</p>
-                </div>
-                <div class="project-item project-card">
-                    <h4>ASSET STRATEGY</h4>
-                    <p>不動産価値を最大化するリノベーションと金融ポートフォリオの構築。</p>
-                </div>
-                <div class="project-card">
-                    <h4>PRIVATE SALON</h4>
-                    <p>会員制の医療・法務ネットワークを通じたトータルライフサポート。</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="partners">
-            <h2>PARTNERS | 提携ネットワーク</h2>
-            <div style="display: flex; justify-content: space-around; font-size: 0.8rem; color: #666; flex-wrap: wrap;">
-                <span>高度医療機関 (MEDICAL)</span>
-                <span>プライベートバンク (FINANCE)</span>
-                <span>戦略法務事務所 (LEGAL)</span>
-            </div>
-        </section>
-
-        <section id="contact" style="border-bottom: none;">
-            <div class="contact-box">
-                <h2>RESERVATION | 完全予約制</h2>
-                <p>新規のコンサルティングは、既存のクライアント様のご紹介、または厳正な審査を通過された方のみ承っております。</p>
-                <a href="#" class="btn">INQUIRY | お問い合わせ</a>
+        <section class="contact-section">
+            <div class="container">
+                <h2>INQUIRY | お問い合わせ</h2>
+                <p style="margin-bottom: 40px; color: #666;">完全予約制。ご紹介のない新規の方の受付は、月間3件までとさせていただいております。</p>
+                <a href="mailto:example@email.com" class="btn-contact">EMAIL TO CEO</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; SASAKI DESIGN STUDIO. ALL RIGHTS RESERVED. <br> FUKUOKA, JAPAN</p>
+        <p>&copy; SASAKI DESIGN STUDIO. ALL RIGHTS RESERVED. <br> FUKUOKA JAPAN</p>
     </footer>
 
 </body>
