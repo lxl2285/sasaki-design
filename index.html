@@ -5,41 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SASAKI DESIGN STUDIO | 佐佐木设计事务所</title>
     <style>
+        /* 极简主义设计系统 */
         body, h1, h2, h3, p, ul { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #fff; color: #111; line-height: 1.8; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3 { font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; }
-        h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        h2 { font-size: 1.5rem; margin-bottom: 2rem; color: #333; }
-        h3 { font-size: 1rem; color: #666; margin-bottom: 1rem; }
-        p { font-size: 1rem; color: #444; max-width: 60ch; margin-bottom: 1.5rem; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 60px; }
-        section { margin-bottom: 120px; }
-        header { border-bottom: 1px solid #eaeaea; text-align: center; }
-        #profile { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
-        .ceo-image { width: 100%; height: auto; display: block; }
-        .ceo-details { display: flex; flex-direction: column; }
-        #projects .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .project-item { background: #fafafa; border: 1px solid #eee; padding: 20px; transition: transform 0.3s; }
-        .project-item:hover { transform: translateY(-5px); }
-        .project-item h3 { color: #111; }
-        #partners .partner-list { list-style: none; display: flex; justify-content: space-around; padding-top: 20px; }
-        .partner-list li { font-weight: 300; color: #777; font-size: 0.9rem; }
-        footer { border-top: 1px solid #eaeaea; text-align: center; color: #999; font-size: 0.8rem; padding: 40px 0; }
-        @media (max-width: 768px) {
-            .container { padding: 30px; }
-            #profile { grid-template-columns: 1fr; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; background-color: #fff; color: #111; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3 { font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; }
+        h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.4rem; margin-bottom: 2.5rem; color: #333; position: relative; padding-bottom: 10px; }
+        h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 1px; background: #000; }
+        h3 { font-size: 0.9rem; color: #888; margin-bottom: 1.5rem; }
+        p { font-size: 0.95rem; color: #444; max-width: 65ch; margin-bottom: 1.5rem; text-align: justify; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 40px; }
+        section { margin-bottom: 150px; opacity: 0; transform: translateY(20px); animation: fadeInUp 1s forwards; }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        header { border-bottom: 1px solid #f0f0f0; text-align: center; padding: 100px 0; }
+        
+        /* 个人档案板块 */
+        #profile { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
+        .ceo-image { width: 100%; height: auto; display: block; border-radius: 2px; }
+        .ceo-details { display: flex; flex-direction: column; justify-content: center; }
+        .ceo-details b { color: #000; font-size: 1.1rem; }
+
+        /* 项目展示板块 */
+        #projects .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .project-item { border-left: 1px solid #eee; padding-left: 20px; transition: all 0.4s ease; }
+        .project-item:hover { border-left: 1px solid #000; }
+        .project-item h3 { color: #111; font-weight: 400; }
+        .project-item p { font-size: 0.85rem; color: #777; }
+
+        /* 合作伙伴板块 */
+        #partners .partner-list { list-style: none; display: flex; justify-content: space-between; border-top: 1px solid #eee; padding-top: 40px; }
+        .partner-list li { font-weight: 300; color: #999; font-size: 0.8rem; letter-spacing: 0.1em; }
+
+        footer { border-top: 1px solid #f0f0f0; text-align: center; color: #bbb; font-size: 0.75rem; padding: 60px 0; letter-spacing: 0.05em; }
+        
+        @media (max-width: 900px) {
+            #profile { grid-template-columns: 1fr; gap: 40px; }
             #projects .grid { grid-template-columns: 1fr; }
+            .container { padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
+
     <header class="container">
         <h1>SASAKI DESIGN STUDIO</h1>
-        <h3>HIGH-END INTERIOR DESIGN & ASSET ALLOCATION STRATEGY</h3>
+        <h3>Bespoke Interior & Financial Strategy</h3>
     </header>
+
     <main class="container">
         <section id="profile">
-            <img src="sakura.jpg" alt="SAKURA SASAKI - CEO, 佐佐木设计事务所" class="ceo-image">
+            <img src="sakura.jpg" alt="SAKURA SASAKI" class="ceo-image">
             <div class="ceo-details">
                 <h2>CEO PROFILE | 佐佐木 樱</h2>
-                <p><b>SAKURA SASAKI, 46歳.</b> 20年以上の実績を持つハイエンド空間デザイナー。「佐々木デザイン事務所
+                <p><b>SAKURA SASAKI, 46歳。</b><br>
+                20年以上にわたり、ハイエンドな住空間のデザインと金融工学を駆使した資産運用コンサルティングを融合。
+                単なる装飾ではなく、クライアントの人生の価値を最大化する「資産としての空間」を創造します。</p>
+                <p>福岡大濠公園のほとり、静寂と洗練が交差するこの場所から、選ばれた方々へ究極のソリューションを提供いたします。</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>FEATURED PROJECTS | プロジェクト</h2>
+            <div class="grid">
+                <div class="project-item">
+                    <h3>OHORI RESIDENCE</h3>
+                    <p>Minimalist luxury overlooking the lake.</p>
+                </div>
+                <div class="project-item">
+                    <h3>GLOBAL PORTFOLIO</h3>
+                    <p>Asset allocation based on financial engineering.</p>
+                </div>
+                <div class="project-item">
+                    <h3>PRIVATE SALON</h3>
+                    <p>Exclusive design for the 0.1% elite.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="partners">
+            <h2>STRATEGIC PARTNERS | 提携パートナー</h2>
+            <ul class="partner-list">
+                <li>医療 / MEDICAL PARTNERS</li>
+                <li>金融 / FINANCIAL ADVISORS</li>
+                <li>法務 / LEGAL COUNSEL</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; SASAKI DESIGN STUDIO. ALL RIGHTS RESERVED.</p>
+        <p>LOCATION: OHORI PARK, FUKUOKA, JAPAN</p>
+    </footer>
+
+</body>
+</html>
