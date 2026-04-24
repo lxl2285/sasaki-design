@@ -6,6 +6,7 @@
     <title>KUDO DESIGN STUDIO | 船橋から発信する美学</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        /* 核心样式恢复 - 确保视觉效果与原版一致 */
         :root { 
             --gold-accent: #b89c6c; 
             --deep-charcoal: #121212; 
@@ -47,12 +48,13 @@
 
         section { padding: 120px 0; border-bottom: 1px solid var(--border-color); }
         .section-title { font-size: 2.2rem; text-align: center; margin-bottom: 90px; color: var(--gold-accent); }
-        .section-sub { font-size: 0.8rem; text-align: center; color: var(--text-sub); margin-top: -80px; margin-bottom: 90px; letter-spacing: 0.1em; }
 
         .profile-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 100px; align-items: center; }
         .ceo-img-container { position: relative; }
-        .ceo-img { width: 100%; height: auto; display: block; filter: contrast(1.02); }
+        .ceo-img { width: 100%; height: auto; display: block; filter: contrast(1.05); }
+        /* 金色边框修饰 */
         .ceo-img-container::before { content: ''; position: absolute; top: 20px; left: 20px; width: 100%; height: 100%; border: 1px solid var(--gold-accent); z-index: -1; }
+        
         .ceo-text h3 { font-size: 1.5rem; margin-bottom: 35px; letter-spacing: 0.1em; }
         .ceo-text p { font-size: 1.05rem; margin-bottom: 25px; text-align: justify; color: #444; font-weight: 300; }
 
@@ -60,4 +62,85 @@
         .philosophy blockquote { font-size: 2rem; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 40px; color: #fff; font-family: 'Playfair Display', serif; font-style: italic;}
         .philosophy p { font-size: 1rem; color: #ccc; letter-spacing: 0.2em; font-weight: 300; }
 
-        .gallery-grid { display: grid; grid-template
+        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
+        .service-item { padding: 50px; border: 1px solid var(--border-color); transition: 0.5s ease; }
+        .service-item:hover { border-color: var(--gold-accent); transform: translateY(-5px); }
+        .service-item h4 { font-size: 1.2rem; margin-bottom: 25px; color: var(--gold-accent); }
+        .service-item p { font-size: 0.95rem; color: var(--text-sub); }
+
+        footer { padding: 100px 0; text-align: center; font-size: 0.85rem; color: var(--text-sub); letter-spacing: 0.15em; background: #fff; border-top: 1px solid var(--border-color);}
+
+        /* 移动端适配 */
+        @media (max-width: 1000px) { 
+            .profile-grid, .service-grid { grid-template-columns: 1fr; gap: 50px; }
+            header h1 { font-size: 2.2rem; }
+            .container { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">KUDO DESIGN</a>
+            <div class="nav-meta">BESPOKE FASHION & TEXTILE ART</div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>KUDO DESIGN STUDIO</h1>
+            <p>美 学 的 裁 断 と 纏 う 芸 術</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="container">
+            <div class="profile-grid">
+                <div class="ceo-img-container">
+                    <img src="wuting.jpg" alt="代表 工藤 恵" class="ceo-img">
+                </div>
+                <div class="ceo-text">
+                    <h3>代表：工藤 恵 (MEGUMI KUDO)</h3>
+                    <p>千葉県船橋市を拠点に、ハイエンドな衣服設計とテキスタイルデザインを手掛ける。20年以上のキャリアを通じて、単なる衣服ではなく、着る人の生き方を形にする「纏う芸術」を追求しています。</p>
+                    <p>大人の女性にふさわしい、静寂の中に品格を感じさせるミニマリズムを。船橋のアトリエにて、完全予約制で一人ひとりに寄り添ったクリエイションを行っています。</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="philosophy">
+            <div class="container">
+                <h2>PHILOSOPHY | 理念</h2>
+                <blockquote>「美しさは、引き算によって完成される」</blockquote>
+                <p>私たちは、過剰な装飾を排し、素材本来の力と完璧なカッティングによる究極のシルエットを目指します。</p>
+            </div>
+        </div>
+
+        <section id="services" class="container">
+            <h2 class="section-title">CORE PROJECTS | 業務内容</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h4>HAUTE COUTURE</h4>
+                    <p>一針一針に魂を込めた完全オーダーメイド。あなただけの特別な一着を、船橋のアトリエから。</p>
+                </div>
+                <div class="service-item">
+                    <h4>TEXTILE DESIGN</h4>
+                    <p>独自のテクスチャーを追求したオリジナル生地の開発。触れるだけでわかる本物の価値を。</p>
+                </div>
+                <div class="service-item">
+                    <h4>ART DIRECTION</h4>
+                    <p>ブランドや個人のビジュアル・アイデンティティの構築。美学に基づいたトータルなディレクション。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 KUDO DESIGN STUDIO. ALL RIGHTS RESERVED.</p>
+            <p>LOCATION: FUNABASHI, CHIBA JAPAN | BY APPOINTMENT ONLY</p>
+        </div>
+    </footer>
+
+</body>
+</html>
