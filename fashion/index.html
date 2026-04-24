@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KUDO DESIGN STUDIO | 船橋から発信する美学</title>
+    <title>KUDO DESIGN STUDIO | 究極の美と裁断の融合</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* 核心样式恢复 - 确保视觉效果与原版一致 */
         :root { 
             --gold-accent: #b89c6c; 
             --deep-charcoal: #121212; 
@@ -23,7 +22,6 @@
             color: var(--text-main); 
             line-height: 1.8; 
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
 
         h1, h2, h3, h4 { 
@@ -31,7 +29,6 @@
             font-weight: 400; 
             letter-spacing: 0.2em; 
             text-transform: uppercase;
-            color: var(--deep-charcoal);
         }
 
         .container { max-width: 1300px; margin: 0 auto; padding: 0 50px; }
@@ -41,41 +38,57 @@
         .logo { font-size: 1.6rem; font-weight: 500; letter-spacing: 0.4em; color: var(--deep-charcoal); text-decoration: none; }
         .nav-meta { font-size: 0.75rem; color: var(--gold-accent); letter-spacing: 0.15em; }
 
-        header { padding: 150px 0; text-align: center; background-color: var(--off-white); margin-bottom: 100px; position: relative; }
+        header { padding: 150px 0; text-align: center; background-color: var(--off-white); position: relative; }
         header::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 80px; background: var(--border-color); }
         header h1 { font-size: 3.5rem; letter-spacing: 0.25em; margin-bottom: 25px; line-height: 1.2; }
         header p { color: var(--gold-accent); letter-spacing: 0.3em; font-size: 0.95rem; }
 
         section { padding: 120px 0; border-bottom: 1px solid var(--border-color); }
         .section-title { font-size: 2.2rem; text-align: center; margin-bottom: 90px; color: var(--gold-accent); }
+        .section-sub { font-size: 0.8rem; text-align: center; color: var(--text-sub); margin-top: -80px; margin-bottom: 90px; letter-spacing: 0.1em; }
 
+        /* Profile Section */
         .profile-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 100px; align-items: center; }
         .ceo-img-container { position: relative; }
-        .ceo-img { width: 100%; height: auto; display: block; filter: contrast(1.05); }
-        /* 金色边框修饰 */
+        .ceo-img { width: 100%; height: auto; display: block; }
         .ceo-img-container::before { content: ''; position: absolute; top: 20px; left: 20px; width: 100%; height: 100%; border: 1px solid var(--gold-accent); z-index: -1; }
-        
         .ceo-text h3 { font-size: 1.5rem; margin-bottom: 35px; letter-spacing: 0.1em; }
-        .ceo-text p { font-size: 1.05rem; margin-bottom: 25px; text-align: justify; color: #444; font-weight: 300; }
+        .ceo-text p { font-size: 1.05rem; margin-bottom: 25px; text-align: justify; }
 
-        .philosophy { background-color: var(--deep-charcoal); color: #fff; text-align: center; padding: 160px 0; border: none; }
-        .philosophy blockquote { font-size: 2rem; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 40px; color: #fff; font-family: 'Playfair Display', serif; font-style: italic;}
-        .philosophy p { font-size: 1rem; color: #ccc; letter-spacing: 0.2em; font-weight: 300; }
+        /* Philosophy Section */
+        .philosophy { background-color: var(--deep-charcoal); color: #fff; text-align: center; padding: 160px 0; }
+        .philosophy blockquote { font-size: 2rem; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 40px; font-style: italic;}
+        .philosophy p { font-size: 1rem; color: #ccc; letter-spacing: 0.2em; }
 
+        /* Gallery Grid */
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .gallery-item { position: relative; overflow: hidden; height: 500px; }
+        .gallery-img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; }
+        .gallery-item:hover .gallery-img { transform: scale(1.05); }
+        .gallery-caption { position: absolute; bottom: 30px; left: 30px; color: #fff; font-size: 0.85rem; letter-spacing: 0.2em; background: rgba(0,0,0,0.6); padding: 10px 20px; border-left: 2px solid var(--gold-accent); }
+
+        /* Awards Section */
+        .awards-list { list-style: none; max-width: 800px; margin: 0 auto; }
+        .awards-list li { padding: 25px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; }
+        .awards-year { color: var(--gold-accent); font-size: 1.2rem; }
+
+        /* Service Grid */
         .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
         .service-item { padding: 50px; border: 1px solid var(--border-color); transition: 0.5s ease; }
         .service-item:hover { border-color: var(--gold-accent); transform: translateY(-5px); }
         .service-item h4 { font-size: 1.2rem; margin-bottom: 25px; color: var(--gold-accent); }
-        .service-item p { font-size: 0.95rem; color: var(--text-sub); }
 
-        footer { padding: 100px 0; text-align: center; font-size: 0.85rem; color: var(--text-sub); letter-spacing: 0.15em; background: #fff; border-top: 1px solid var(--border-color);}
+        /* Reservation Form */
+        .reservation-section { background-color: var(--off-white); }
+        .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 80px; border: 1px solid var(--border-color); }
+        .form-group { margin-bottom: 35px; }
+        .form-label { display: block; font-size: 0.85rem; color: var(--text-sub); margin-bottom: 10px; }
+        .form-input, .form-textarea { width: 100%; padding: 15px; border: 1px solid var(--border-color); background: var(--off-white); }
+        .btn-submit { width: 100%; padding: 20px; background: var(--deep-charcoal); color: #fff; border: none; letter-spacing: 0.3em; cursor: pointer; }
 
-        /* 移动端适配 */
-        @media (max-width: 1000px) { 
-            .profile-grid, .service-grid { grid-template-columns: 1fr; gap: 50px; }
-            header h1 { font-size: 2.2rem; }
-            .container { padding: 0 20px; }
-        }
+        footer { padding: 100px 0; text-align: center; border-top: 1px solid var(--border-color); }
+
+        @media (max-width: 1000px) { .profile-grid, .service-grid, .gallery-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -95,15 +108,15 @@
     </header>
 
     <main>
-        <section id="about" class="container">
+        <section class="container">
             <div class="profile-grid">
                 <div class="ceo-img-container">
                     <img src="wuting.jpg" alt="代表 工藤 恵" class="ceo-img">
                 </div>
                 <div class="ceo-text">
                     <h3>代表：工藤 恵 (MEGUMI KUDO)</h3>
-                    <p>千葉県船橋市を拠点に、ハイエンドな衣服設計とテキスタイルデザインを手掛ける。20年以上のキャリアを通じて、単なる衣服ではなく、着る人の生き方を形にする「纏う芸術」を追求しています。</p>
-                    <p>大人の女性にふさわしい、静寂の中に品格を感じさせるミニマリズムを。船橋のアトリエにて、完全予約制で一人ひとりに寄り添ったクリエイションを行っています。</p>
+                    <p>千葉県船橋市のアトリエを拠点に、20年以上のキャリアを持つクチュリエール。素材本来の美しさを引き出す立体裁断を追求しています。</p>
+                    <p>「日常に潜む芸術」をテーマに、時代に流されない普遍的なエレガンスを提案し続けています。</p>
                 </div>
             </div>
         </section>
@@ -111,35 +124,64 @@
         <div class="philosophy">
             <div class="container">
                 <h2>PHILOSOPHY | 理念</h2>
-                <blockquote>「美しさは、引き算によって完成される」</blockquote>
-                <p>私たちは、過剰な装飾を排し、素材本来の力と完璧なカッティングによる究極のシルエットを目指します。</p>
+                <blockquote>「纏う人の知性は、そのシルエットに現れる」</blockquote>
+                <p>私たちは、ミニマリズムの中にこそ最も強い個性が宿ると信じています。</p>
             </div>
         </div>
 
-        <section id="services" class="container">
-            <h2 class="section-title">CORE PROJECTS | 業務内容</h2>
+        <section class="container">
+            <h2 class="section-title">PORTFOLIO | 作品集</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
+                    <div class="gallery-caption">Silk Couture | 2025</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
+                    <div class="gallery-caption">Minimalist Wool | 2024</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">AWARDS & MEDIA | 受賞歴</h2>
+            <ul class="awards-list">
+                <li><span class="awards-year">2025</span><span>Japan Textile Design Award - Gold</span></li>
+                <li><span class="awards-year">2023</span><span>Chiba Creator's Exhibition - Selected</span></li>
+            </ul>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">SERVICES | 業務内容</h2>
             <div class="service-grid">
-                <div class="service-item">
-                    <h4>HAUTE COUTURE</h4>
-                    <p>一針一針に魂を込めた完全オーダーメイド。あなただけの特別な一着を、船橋のアトリエから。</p>
-                </div>
-                <div class="service-item">
-                    <h4>TEXTILE DESIGN</h4>
-                    <p>独自のテクスチャーを追求したオリジナル生地の開発。触れるだけでわかる本物の価値を。</p>
-                </div>
-                <div class="service-item">
-                    <h4>ART DIRECTION</h4>
-                    <p>ブランドや個人のビジュアル・アイデンティティの構築。美学に基づいたトータルなディレクション。</p>
+                <div class="service-item"><h4>BESPOKE</h4><p>完全オーダーメイドの衣服制作。</p></div>
+                <div class="service-item"><h4>TEXTILE</h4><p>オリジナル生地の開発と提供。</p></div>
+                <div class="service-item"><h4>CONSULTING</h4><p>装いを通じたセルフブランディング。</p></div>
+            </div>
+        </section>
+
+        <section class="reservation-section">
+            <div class="container">
+                <h2 class="section-title">RESERVATION | 予約制</h2>
+                <div class="form-container">
+                    <form action="#">
+                        <div class="form-group">
+                            <label class="form-label">NAME | お名前</label>
+                            <input type="text" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">MESSAGE | 内容</label>
+                            <textarea class="form-textarea"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">SUBMIT</button>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 KUDO DESIGN STUDIO. ALL RIGHTS RESERVED.</p>
-            <p>LOCATION: FUNABASHI, CHIBA JAPAN | BY APPOINTMENT ONLY</p>
-        </div>
+        <p>&copy; 2026 KUDO DESIGN STUDIO | FUNABASHI, CHIBA</p>
     </footer>
 
 </body>
