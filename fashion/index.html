@@ -18,80 +18,94 @@
         body { 
             font-family: 'Noto Sans JP', sans-serif; 
             background-color: var(--white); 
-            color: var(--black); 
+            color: #222; 
             line-height: 2; 
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 400; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 400; }
 
         .container { max-width: 1300px; margin: 0 auto; padding: 0 60px; }
         
-        nav { padding: 50px 0; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.9); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        nav { padding: 50px 0; border-bottom: 1px solid var(--border); background: #fff; position: sticky; top: 0; z-index: 1000; }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; letter-spacing: 0.4em; text-decoration: none; color: var(--black); font-weight: 600; }
-        .nav-meta { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.2em; }
+        .logo { font-size: 1.4rem; text-decoration: none; color: var(--black); font-weight: 600; }
+        .nav-meta { font-size: 0.7rem; color: var(--gold); }
 
-        header { height: 75vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--off-white); position: relative; }
-        header h1 { font-size: 4.5rem; line-height: 1.2; margin-bottom: 30px; letter-spacing: 0.3em; }
+        header { height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--off-white); }
+        header h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
         header p { color: var(--gold); letter-spacing: 0.5em; font-size: 0.9rem; }
-        header::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 1px; height: 100px; background: var(--border); }
 
-        section { padding: 150px 0; border-bottom: 1px solid var(--border); }
-        .section-title { font-size: 2.8rem; text-align: center; margin-bottom: 100px; color: var(--black); }
+        section { padding: 160px 0; border-bottom: 1px solid var(--border); }
+        .section-title { font-size: 2.2rem; text-align: center; margin-bottom: 100px; color: var(--black); }
 
         .profile-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px; align-items: center; }
         .ceo-img-wrap { position: relative; }
-        .ceo-img { width: 100%; height: auto; display: block; filter: contrast(1.02); }
-        .ceo-img-wrap::before { content: ''; position: absolute; top: 30px; left: 30px; width: 100%; height: 100%; border: 1px solid var(--gold); z-index: -1; }
-        .ceo-text h3 { font-size: 1.8rem; margin-bottom: 40px; border-left: 2px solid var(--gold); padding-left: 30px; }
+        .ceo-img { width: 100%; display: block; border: 1px solid var(--border); }
+        .ceo-img-wrap::after { content: ''; position: absolute; top: 25px; left: 25px; width: 100%; height: 100%; border: 1px solid var(--gold); z-index: -1; }
+        .ceo-text h3 { font-size: 1.6rem; margin-bottom: 40px; border-left: 2px solid var(--gold); padding-left: 30px; }
 
-        /* 修复重点：视差背景色块问题 */
-        .parallax-section { 
-            height: 600px; 
-            background-color: var(--black); /* 增加黑色底色，防止图片加载出问题变白 */
-            background-image: url('https://images.unsplash.com/photo-1445205170230-053b830c6050?auto=format&fit=crop&w=1920&q=80'); 
-            background-attachment: fixed; 
-            background-position: center; 
-            background-repeat: no-repeat;
-            background-size: cover; 
-            margin: 60px 0;
+        /* 修复：将大黑块替换为稳定的全屏大图展示 */
+        .hero-break { 
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            background: var(--off-white);
+            position: relative;
+        }
+        .hero-break img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9);
+        }
+        .hero-break::after {
+            content: 'ATELIER CONCEPT';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1em;
+            font-size: 0.8rem;
+            white-space: nowrap;
         }
 
-        .philosophy { background: var(--black); color: #fff; text-align: center; padding: 200px 0; border: none; }
-        .philosophy blockquote { font-size: 2.5rem; font-weight: 300; font-style: italic; margin-bottom: 40px; color: #fff; }
-        .philosophy p { color: #888; letter-spacing: 0.4em; font-size: 0.9rem; }
+        .philosophy { background: var(--black); color: #fff; text-align: center; padding: 180px 0; }
+        .philosophy blockquote { font-size: 2.2rem; font-weight: 300; font-style: italic; margin-bottom: 40px; color: #fff; }
+        .philosophy p { color: #888; font-size: 0.8rem; letter-spacing: 0.4em; }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .gallery-item { position: relative; height: 600px; overflow: hidden; background: var(--off-white); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .gallery-item { position: relative; height: 550px; overflow: hidden; background: #f4f4f4; }
         .gallery-img { width: 100%; height: 100%; object-fit: cover; transition: 1.2s ease; }
         .gallery-item:hover .gallery-img { transform: scale(1.05); }
-        .gallery-caption { position: absolute; bottom: 40px; left: 40px; color: #fff; z-index: 10; border-left: 3px solid var(--gold); padding-left: 20px; }
-        .gallery-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.4), transparent); }
+        .gallery-caption { position: absolute; bottom: 35px; left: 35px; color: #fff; z-index: 10; border-left: 2px solid var(--gold); padding-left: 20px; background: rgba(0,0,0,0.3); padding: 10px 20px; }
 
         .awards-list { max-width: 900px; margin: 0 auto; list-style: none; }
         .awards-list li { padding: 40px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .award-year { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); }
+        .award-year { color: var(--gold); font-size: 1.5rem; }
 
         .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-        .service-item { padding: 60px; border: 1px solid var(--border); transition: 0.5s; background: #fff; text-align: center; }
-        .service-item:hover { border-color: var(--gold); transform: translateY(-10px); }
-        .service-item h4 { font-size: 1.2rem; margin-bottom: 30px; color: var(--gold); }
+        .service-item { padding: 60px; border: 1px solid var(--border); text-align: center; transition: 0.4s; }
+        .service-item:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .service-item h4 { font-size: 1.1rem; margin-bottom: 25px; color: var(--gold); }
 
         .reservation-section { background: var(--off-white); padding: 150px 0; }
-        .form-container { max-width: 850px; margin: 0 auto; background: #fff; padding: 80px; border: 1px solid var(--border); }
+        .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 80px; border: 1px solid var(--border); }
         .form-group { margin-bottom: 40px; }
-        .form-label { display: block; font-size: 0.8rem; color: #999; margin-bottom: 15px; letter-spacing: 0.2em; }
-        .form-input, .form-textarea { width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid var(--border); font-size: 1.1rem; outline: none; }
+        .form-label { display: block; font-size: 0.7rem; color: #aaa; margin-bottom: 15px; letter-spacing: 0.1em; }
+        .form-input, .form-textarea { width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid var(--border); font-size: 1rem; outline: none; }
         .btn-submit { width: 100%; padding: 25px; background: var(--black); color: #fff; border: none; letter-spacing: 0.4em; cursor: pointer; transition: 0.4s; }
         .btn-submit:hover { background: var(--gold); }
 
-        footer { padding: 120px 0; text-align: center; border-top: 1px solid var(--border); color: #aaa; font-size: 0.75rem; letter-spacing: 0.3em; background: #fff;}
+        footer { padding: 120px 0; text-align: center; color: #bbb; font-size: 0.7rem; letter-spacing: 0.2em; border-top: 1px solid var(--border); }
 
         @media (max-width: 1024px) { 
-            .profile-grid, .service-grid, .gallery-grid { grid-template-columns: 1fr; } 
-            .parallax-section { height: 300px; background-attachment: scroll; } /* 移动端禁用fixed防止空白 */
+            .profile-grid, .gallery-grid, .service-grid { grid-template-columns: 1fr; } 
             .container { padding: 0 30px; }
+            header h1 { font-size: 2.5rem; }
+            .hero-break { height: 350px; }
         }
     </style>
 </head>
@@ -115,20 +129,24 @@
     <main>
         <section class="container">
             <div class="profile-grid">
-                <div class="ceo-img-wrap"><img src="wuting.jpg" alt="Megumi Kudo" class="ceo-img"></div>
+                <div class="ceo-img-wrap">
+                    <img src="wuting.jpg" alt="Megumi Kudo" class="ceo-img">
+                </div>
                 <div class="ceo-text">
-                    <p style="color:var(--gold); margin-bottom:15px; letter-spacing:0.3em;">CREATIVE DIRECTOR</p>
+                    <p style="color:var(--gold); font-size:0.8rem; margin-bottom:15px; letter-spacing:0.3em;">CREATIVE DIRECTOR</p>
                     <h3>工藤 恵 | MEGUMI KUDO</h3>
-                    <p>千葉県船橋市を拠点に活動。20年以上のキャリアを通じて、身体の曲線と布の対話を追求してきました。フランス伝統の立体裁断（Moulage）を極め、その人の内面的な気高さを彫刻のように描き出します。</p>
+                    <p>千葉県船橋市のアトリエを拠点に活動。20年以上のキャリアを通じて、身体の曲線と布の対話を追求してきました。フランス伝統の立体裁断（Moulage）を極め、その人の内面的な気高さを彫刻のように描き出します。</p>
                 </div>
             </div>
         </section>
 
-        <div class="parallax-section"></div>
+        <div class="hero-break">
+            <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?auto=format&fit=crop&w=1800&q=80" alt="Atelier">
+        </div>
 
         <div class="philosophy">
             <div class="container">
-                <blockquote>"True elegance is an expression of an educated mind."</blockquote>
+                <blockquote>"The beauty of silence."</blockquote>
                 <p>美学は、削ぎ落とされた知性の中に宿る</p>
             </div>
         </div>
@@ -137,38 +155,37 @@
             <h2 class="section-title">PORTFOLIO</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
-                    <div class="gallery-caption"><h4>SILK MOULAGE</h4><p>2025 S/S Archive</p></div>
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80" class="gallery-img">
+                    <div class="gallery-caption"><h4>SILK MOULAGE</h4><p>2025 S/S</p></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
-                    <div class="gallery-caption"><h4>MINIMALIST WOOL</h4><p>Winter Collection</p></div>
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" class="gallery-img">
+                    <div class="gallery-caption"><h4>MINIMALIST WOOL</h4><p>Winter Archive</p></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" class="gallery-img">
                     <div class="gallery-caption"><h4>WHITE SCULPTURE</h4><p>Atelier Work</p></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80" class="gallery-img">
                     <div class="gallery-caption"><h4>PATTERN STUDY</h4><p>2024 Design</p></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1537832816519-689ad163238b?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1537832816519-689ad163238b?auto=format&fit=crop&w=800&q=80" class="gallery-img">
                     <div class="gallery-caption"><h4>BESPOKE TEXTILE</h4><p>Raw Materials</p></div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" class="gallery-img">
                     <div class="gallery-caption"><h4>ETERNAL BLACK</h4><p>Evening Couture</p></div>
                 </div>
             </div>
         </section>
 
         <section class="container">
-            <h2 class="section-title">AWARDS & MEDIA</h2>
+            <h2 class="section-title">AWARDS</h2>
             <ul class="awards-list">
                 <li><span class="award-year">2025</span><div style="text-align:right"><h4>JAPAN TEXTILE DESIGN AWARD</h4><p>Gold Prize</p></div></li>
                 <li><span class="award-year">2023</span><div style="text-align:right"><h4>VOGUE JAPAN Selection</h4><p>Featured Designer</p></div></li>
-                <li><span class="award-year">2021</span><div style="text-align:right"><h4>CHIBA CREATIVE FESTIVAL</h4><p>Grand Prix</p></div></li>
             </ul>
         </section>
 
@@ -197,9 +214,7 @@
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 KUDO DESIGN STUDIO | FUNABASHI, CHIBA JAPAN</p>
-        </div>
+        <p>&copy; 2026 KUDO DESIGN STUDIO | FUNABASHI, CHIBA JAPAN</p>
     </footer>
 
 </body>
