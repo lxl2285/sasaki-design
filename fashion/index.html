@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>KUDO DESIGN STUDIO | 究極の美と裁断の融合</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
     <style>
@@ -14,84 +14,97 @@
             --border: #eeeeee;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* 基础设置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; }
         body { 
             font-family: 'Noto Sans JP', sans-serif; 
             background-color: var(--white); 
             color: var(--black); 
-            line-height: 2.2; 
+            line-height: 2; 
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; letter-spacing: 0.4em; text-transform: uppercase; font-weight: 400; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 400; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
         
-        /* 导航栏 - 极窄设计 */
-        nav { padding: 60px 0; background: #fff; position: sticky; top: 0; z-index: 1000; transition: 0.5s; }
+        /* 导航栏 - 移动端适配 */
+        nav { padding: 30px 0; background: #fff; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.2rem; text-decoration: none; color: var(--black); font-weight: 500; letter-spacing: 0.5em; }
-        .nav-meta { font-size: 0.6rem; color: var(--gold); letter-spacing: 0.3em; }
+        .logo { font-size: 1.1rem; text-decoration: none; color: var(--black); font-weight: 500; letter-spacing: 0.4em; }
+        .nav-meta { font-size: 0.55rem; color: var(--gold); letter-spacing: 0.2em; }
 
-        /* 头部 - 极致留白 */
-        header { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--off-white); position: relative; }
-        header h1 { font-size: 3.5rem; line-height: 1.5; margin-bottom: 40px; opacity: 0.9; }
-        header p { color: var(--gold); letter-spacing: 0.6em; font-size: 0.8rem; }
-        header::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 1px; height: 150px; background: var(--gold); opacity: 0.5; }
+        /* 头部 */
+        header { height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--off-white); position: relative; }
+        header h1 { font-size: 3rem; line-height: 1.4; margin-bottom: 30px; }
+        header p { color: var(--gold); letter-spacing: 0.5em; font-size: 0.8rem; }
+        header::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 1px; height: 100px; background: var(--gold); opacity: 0.4; }
 
-        section { padding: 280px 0; border-bottom: 1px solid var(--border); } /* 极大间距增加长度 */
-        .section-title { font-size: 2rem; text-align: center; margin-bottom: 150px; color: var(--black); opacity: 0.8; }
+        section { padding: 180px 0; border-bottom: 1px solid var(--border); }
+        .section-title { font-size: 1.8rem; text-align: center; margin-bottom: 100px; color: var(--black); opacity: 0.8; }
 
-        /* 个人介绍 - 艺术策展感布局 */
-        .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 150px; align-items: center; }
+        /* 个人介绍 */
+        .profile-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
         .ceo-img-wrap { position: relative; }
-        .ceo-img { width: 100%; height: auto; filter: contrast(1.1) saturate(0.8); }
-        .ceo-img-wrap::after { content: ''; position: absolute; top: -40px; left: -40px; width: 100px; height: 100px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
-        .ceo-text h3 { font-size: 1.4rem; margin-bottom: 50px; letter-spacing: 0.2em; }
-        .ceo-text p { font-size: 0.95rem; color: #666; margin-bottom: 30px; font-weight: 300; }
+        .ceo-img { width: 100%; height: auto; filter: contrast(1.05) saturate(0.85); display: block; }
+        .ceo-img-wrap::after { content: ''; position: absolute; top: -20px; left: -20px; width: 60px; height: 60px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+        .ceo-text h3 { font-size: 1.3rem; margin-bottom: 40px; letter-spacing: 0.2em; }
+        .ceo-text p { font-size: 0.9rem; color: #666; margin-bottom: 25px; font-weight: 300; }
 
-        /* 沉浸式视觉墙 */
-        .immersive-hero { width: 100%; height: 80vh; background: #eee; overflow: hidden; position: relative; }
-        .immersive-hero img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%) brightness(0.9); }
+        /* 沉浸式大图 */
+        .immersive-hero { width: 100%; height: 60vh; background: var(--off-white); overflow: hidden; }
+        .immersive-hero img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) grayscale(10%); }
 
-        .philosophy { background: var(--black); color: #fff; text-align: center; padding: 300px 0; }
-        .philosophy blockquote { font-size: 2.2rem; font-weight: 300; font-style: italic; margin-bottom: 60px; color: #fff; opacity: 0.9; }
-        .philosophy p { color: #555; letter-spacing: 0.5em; font-size: 0.75rem; }
+        .philosophy { background: var(--black); color: #fff; text-align: center; padding: 200px 0; }
+        .philosophy blockquote { font-size: 2rem; font-weight: 300; font-style: italic; margin-bottom: 50px; line-height: 1.6; }
+        .philosophy p { color: #666; letter-spacing: 0.4em; font-size: 0.7rem; }
 
-        /* 作品集 - 杂志化网格 */
+        /* 作品集 - 手机端单列，PC双列错位 */
         .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 100px 60px; }
-        .gallery-item { position: relative; height: 750px; overflow: hidden; }
-        .gallery-item:nth-child(even) { margin-top: 150px; } /* 错位增加灵动感 */
-        .gallery-img { width: 100%; height: 100%; object-fit: cover; transition: 2s cubic-bezier(0.1, 1, 0.2, 1); filter: saturate(0.7); }
-        .gallery-item:hover .gallery-img { transform: scale(1.03); }
-        .gallery-caption { margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px; display: flex; justify-content: space-between; }
-        .gallery-caption h4 { font-size: 0.8rem; letter-spacing: 0.2em; color: var(--gold); }
-        .gallery-caption span { font-size: 0.7rem; color: #aaa; }
+        .gallery-item { position: relative; width: 100%; height: 700px; overflow: hidden; }
+        .gallery-item:nth-child(even) { margin-top: 150px; }
+        .gallery-img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s; filter: saturate(0.8); }
+        .gallery-caption { margin-top: 25px; border-top: 1px solid var(--border); padding-top: 15px; display: flex; justify-content: space-between; }
+        .gallery-caption h4 { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.1em; }
+        .gallery-caption span { font-size: 0.65rem; color: #bbb; }
 
-        /* 获奖记录 - 极简 */
+        /* 获奖记录 */
         .awards-list { max-width: 800px; margin: 0 auto; list-style: none; }
-        .awards-list li { padding: 50px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; }
-        .award-year { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); opacity: 0.4; }
-        .award-title { font-size: 0.9rem; letter-spacing: 0.1em; color: #444; }
+        .awards-list li { padding: 40px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; }
+        .award-year { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); opacity: 0.5; }
+        .award-title { font-size: 0.8rem; letter-spacing: 0.1em; color: #444; text-align: right; }
 
-        /* 预约表单 - 漂浮感 */
-        .reservation-section { background: var(--off-white); padding: 300px 0; }
-        .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 120px; box-shadow: 0 50px 100px rgba(0,0,0,0.02); }
-        .form-group { margin-bottom: 60px; }
-        .form-label { display: block; font-size: 0.7rem; color: #aaa; margin-bottom: 20px; letter-spacing: 0.3em; }
-        .form-input, .form-textarea { width: 100%; padding: 20px 0; border: none; border-bottom: 1px solid var(--border); font-size: 0.95rem; outline: none; background: transparent; }
-        .btn-submit { width: 100%; padding: 30px; background: var(--black); color: #fff; border: none; letter-spacing: 0.5em; cursor: pointer; font-size: 0.8rem; transition: 0.5s; }
-        .btn-submit:hover { background: var(--gold); }
+        /* 预约表单 */
+        .reservation-section { background: var(--off-white); padding: 180px 0; }
+        .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 80px; box-shadow: 0 40px 100px rgba(0,0,0,0.02); border: 1px solid var(--border); }
+        .form-group { margin-bottom: 50px; }
+        .form-label { display: block; font-size: 0.65rem; color: #aaa; margin-bottom: 15px; letter-spacing: 0.2em; }
+        .form-input, .form-textarea { width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid var(--border); font-size: 0.95rem; outline: none; border-radius: 0; }
+        .btn-submit { width: 100%; padding: 25px; background: var(--black); color: #fff; border: none; letter-spacing: 0.4em; cursor: pointer; font-size: 0.75rem; }
 
-        footer { padding: 180px 0; text-align: center; border-top: 1px solid var(--border); color: #ccc; font-size: 0.7rem; letter-spacing: 0.5em; }
+        footer { padding: 100px 0; text-align: center; border-top: 1px solid var(--border); color: #ccc; font-size: 0.65rem; letter-spacing: 0.4em; }
 
-        @media (max-width: 1024px) { 
-            .profile-grid, .gallery-grid { grid-template-columns: 1fr; } 
-            .gallery-item { height: 500px; }
-            .gallery-item:nth-child(even) { margin-top: 0; }
-            section { padding: 150px 0; }
-            .container { padding: 0 30px; }
+        /* 响应式媒体查询 - 专门针对手机 */
+        @media (max-width: 768px) { 
+            .container { padding: 0 25px; }
+            header h1 { font-size: 2.2rem; }
+            section { padding: 100px 0; }
+            .section-title { margin-bottom: 60px; }
+            
+            .profile-grid { grid-template-columns: 1fr; gap: 50px; }
+            .ceo-img-wrap::after { top: -15px; left: -15px; width: 40px; height: 40px; }
+            
+            .philosophy blockquote { font-size: 1.4rem; }
+            
+            .gallery-grid { grid-template-columns: 1fr; gap: 60px; }
+            .gallery-item { height: 500px; margin-top: 0 !important; }
+            
+            .awards-list li { flex-direction: column; gap: 10px; }
+            .award-title { text-align: left; }
+            
+            .form-container { padding: 50px 25px; }
+            nav { padding: 20px 0; }
         }
     </style>
 </head>
@@ -100,13 +113,13 @@
     <nav>
         <div class="container nav-content">
             <a href="#" class="logo">KUDO DESIGN</a>
-            <div class="nav-meta">BESPOKE ATELIER | CHIBA FUNABASHI</div>
+            <div class="nav-meta">BESPOKE ATELIER</div>
         </div>
     </nav>
 
     <header>
         <div class="container">
-            <p>工 藤 恵 裁 断 研 究 所</p>
+            <p style="letter-spacing:0.4em; font-size:0.7rem; margin-bottom:15px;">KUDO MEGUMI STUDIO</p>
             <h1>THE SILENCE<br>OF ELEGANCE</h1>
             <p>美 学 的 裁 断 と 纏 う 芸 術</p>
         </div>
@@ -117,27 +130,27 @@
             <div class="profile-grid">
                 <div class="ceo-img-wrap"><img src="wuting.jpg" alt="Megumi Kudo" class="ceo-img"></div>
                 <div class="ceo-text">
-                    <p style="color:var(--gold); font-size:0.75rem; margin-bottom:20px; letter-spacing:0.4em;">DIRECTOR</p>
+                    <p style="color:var(--gold); font-size:0.7rem; margin-bottom:15px; letter-spacing:0.3em;">DIRECTOR</p>
                     <h3>工藤 恵 | MEGUMI KUDO</h3>
-                    <p>千葉県船橋市のアトリエを拠点に、20年以上のキャリアを通じて「立体裁断」の可能性を追求してきました。</p>
-                    <p>私の仕事は、単に服を作ることではありません。その人の内面にある「気高さ」を、布という媒体を通して彫刻のように描き出すことです。</p>
+                    <p>千葉県船橋市のアトリエを拠点に、20年以上のキャリアを持つクチュリエール。</p>
+                    <p>私の仕事は、単に服を作ることではありません。その人の内面にある「気高さ」を、彫刻のように削り出すことです。</p>
                 </div>
             </div>
         </section>
 
         <div class="immersive-hero">
-            <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?auto=format&fit=crop&w=1800&q=80" alt="Atelier">
+            <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?auto=format&fit=crop&w=1500&q=80" alt="Atelier">
         </div>
 
         <div class="philosophy">
             <div class="container">
-                <blockquote>"Style is a way to say who you are without having to speak."</blockquote>
+                <blockquote>"Style is a way to say who you are without speaking."</blockquote>
                 <p>雄弁なる静寂の美学</p>
             </div>
         </div>
 
         <section class="container">
-            <h2 class="section-title">SELECTED WORKS</h2>
+            <h2 class="section-title">PORTFOLIO</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
@@ -161,8 +174,8 @@
         <section class="container">
             <h2 class="section-title">RECOGNITION</h2>
             <ul class="awards-list">
-                <li><span class="award-year">2025</span><span class="award-title">JAPAN TEXTILE DESIGN AWARD - GOLD PRIZE</span></li>
-                <li><span class="award-year">2023</span><span class="award-title">VOGUE JAPAN - NEW GENERATION CREATORS</span></li>
+                <li><span class="award-year">2025</span><span class="award-title">JAPAN TEXTILE DESIGN AWARD - GOLD</span></li>
+                <li><span class="award-year">2023</span><span class="award-title">VOGUE JAPAN - NEW GENERATION</span></li>
                 <li><span class="award-year">2021</span><span class="award-title">CHIBA CREATOR'S FESTIVAL - GRAND PRIX</span></li>
             </ul>
         </section>
@@ -183,7 +196,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 KUDO DESIGN STUDIO | FUNABASHI, CHIBA JAPAN</p>
+        <p>&copy; 2026 KUDO DESIGN STUDIO | FUNABASHI, CHIBA</p>
     </footer>
 
 </body>
