@@ -3,159 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KUDO DESIGN STUDIO | 究極の美と裁断の融合</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>KUDO DESIGN STUDIO | 工藤 恵</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --gold-accent: #b89c6c; 
-            --deep-charcoal: #121212; 
-            --off-white: #fafafa; 
-            --text-main: #333333;
-            --text-sub: #777777;
-            --border-color: #eaeaea;
-        }
-
+        :root { --gold: #b89c6c; --dark: #121212; --border: #eaeaea; --bg: #fafafa; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Noto Sans JP', sans-serif; 
-            background-color: #fff; 
-            color: var(--text-main); 
-            line-height: 1.8; 
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3, h4 { 
-            font-family: 'Playfair Display', serif; 
-            font-weight: 400; 
-            letter-spacing: 0.2em; 
-            text-transform: uppercase;
-        }
-
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 50px; }
+        body { font-family: 'Noto Sans JP', sans-serif; background: #fff; color: #333; line-height: 1.8; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
         
-        nav { padding: 40px 0; border-bottom: 1px solid var(--border-color); background: #fff; position: sticky; top: 0; z-index: 1000; }
-        .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.6rem; font-weight: 500; letter-spacing: 0.4em; color: var(--deep-charcoal); text-decoration: none; }
-        .nav-meta { font-size: 0.75rem; color: var(--gold-accent); letter-spacing: 0.15em; }
+        /* 导航 */
+        nav { padding: 30px 0; border-bottom: 1px solid var(--border); background: #fff; position: sticky; top: 0; z-index: 100; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; letter-spacing: 0.3em; text-decoration: none; color: var(--dark); }
+        .nav-info { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.1em; }
 
-        header { padding: 150px 0; text-align: center; background-color: var(--off-white); position: relative; }
-        header::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 80px; background: var(--border-color); }
-        header h1 { font-size: 3.5rem; letter-spacing: 0.25em; margin-bottom: 25px; line-height: 1.2; }
-        header p { color: var(--gold-accent); letter-spacing: 0.3em; font-size: 0.95rem; }
+        /* 头部 */
+        header { padding: 120px 0; text-align: center; background: var(--bg); border-bottom: 1px solid var(--border); }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; letter-spacing: 0.2em; margin-bottom: 15px; }
+        header p { color: var(--gold); letter-spacing: 0.3em; font-size: 0.9rem; }
 
-        section { padding: 120px 0; border-bottom: 1px solid var(--border-color); }
-        .section-title { font-size: 2.2rem; text-align: center; margin-bottom: 90px; color: var(--gold-accent); }
+        /* 个人介绍 */
+        section { padding: 100px 0; border-bottom: 1px solid var(--border); }
+        .section-title { font-family: 'Playfair Display', serif; text-align: center; font-size: 2rem; margin-bottom: 60px; color: var(--gold); letter-spacing: 0.2em; }
+        .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .profile-img img { width: 100%; display: block; border: 1px solid var(--border); box-shadow: 15px 15px 0 var(--gold); }
+        .profile-text h3 { font-size: 1.5rem; margin-bottom: 25px; border-left: 3px solid var(--gold); padding-left: 15px; }
 
-        /* Profile */
-        .profile-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 100px; align-items: center; }
-        .ceo-img-container { position: relative; }
-        .ceo-img { width: 100%; height: auto; display: block; }
-        .ceo-img-container::before { content: ''; position: absolute; top: 20px; left: 20px; width: 100%; height: 100%; border: 1px solid var(--gold-accent); z-index: -1; }
-        .ceo-text h3 { font-size: 1.5rem; margin-bottom: 35px; letter-spacing: 0.1em; }
-        .ceo-text p { font-size: 1.05rem; margin-bottom: 25px; text-align: justify; }
+        /* 理念 */
+        .philosophy { background: var(--dark); color: #fff; padding: 120px 0; text-align: center; }
+        .philosophy blockquote { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-style: italic; margin-bottom: 20px; }
 
-        /* Philosophy */
-        .philosophy { background-color: var(--deep-charcoal); color: #fff; text-align: center; padding: 160px 0; }
-        .philosophy blockquote { font-size: 2rem; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 40px; font-style: italic;}
-        .philosophy p { font-size: 1rem; color: #ccc; letter-spacing: 0.2em; }
+        /* 作品集 - 修复重点 */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .portfolio-item { position: relative; height: 400px; overflow: hidden; background: #eee; }
+        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .portfolio-item:hover img { transform: scale(1.1); }
+        .portfolio-tag { position: absolute; bottom: 20px; left: 20px; background: rgba(0,0,0,0.7); color: #fff; padding: 5px 15px; font-size: 0.75rem; letter-spacing: 0.1em; }
 
-        /* ========= 全量升级的作品集 (PORTFOLIO GRID) ========= */
-        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .gallery-item { position: relative; overflow: hidden; height: 500px; }
-        .gallery-img { width: 100%; height: 100%; object-fit: cover; transition: 0.8s ease; filter: contrast(1.05); }
-        .gallery-item:hover .gallery-img { transform: scale(1.03); }
-        .gallery-caption { position: absolute; bottom: 30px; left: 30px; color: #fff; font-size: 0.85rem; letter-spacing: 0.2em; background: rgba(0,0,0,0.6); padding: 10px 20px; border-left: 2px solid var(--gold-accent); text-transform: uppercase;}
-        /* 鼠标悬停预览图（新增加） */
-        .preview-on-hover {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            opacity: 0; transition: opacity 0.5s ease, transform 0.8s ease; z-index: 2; pointer-events: none;
-        }
-        .gallery-item:hover .preview-on-hover { opacity: 1; transform: scale(1.05); }
+        /* 获奖 */
+        .awards-list { max-width: 700px; margin: 0 auto; list-style: none; }
+        .awards-list li { padding: 20px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
 
-        /* Awards */
-        .awards-list { list-style: none; max-width: 800px; margin: 0 auto; }
-        .awards-list li { padding: 25px 0; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; }
-        .awards-year { color: var(--gold-accent); font-size: 1.2rem; }
+        /* 预约表单 */
+        .form-box { max-width: 600px; margin: 0 auto; padding: 50px; border: 1px solid var(--border); background: var(--bg); }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; font-size: 0.8rem; margin-bottom: 8px; color: var(--gold); }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--border); outline: none; }
+        .submit-btn { width: 100%; padding: 15px; background: var(--dark); color: #fff; border: none; cursor: pointer; letter-spacing: 0.2em; }
 
-        /* Services */
-        .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
-        .service-item { padding: 50px; border: 1px solid var(--border-color); transition: 0.5s ease; }
-        .service-item:hover { border-color: var(--gold-accent); transform: translateY(-5px); }
-        .service-item h4 { font-size: 1.2rem; margin-bottom: 25px; color: var(--gold-accent); }
+        footer { padding: 60px 0; text-align: center; font-size: 0.75rem; color: #999; }
 
-        /* Reservation */
-        .reservation-section { background-color: var(--off-white); }
-        .form-container { max-width: 800px; margin: 0 auto; background: #fff; padding: 80px; border: 1px solid var(--border-color); }
-        .form-group { margin-bottom: 35px; }
-        .form-label { display: block; font-size: 0.85rem; color: var(--text-sub); margin-bottom: 10px; }
-        .form-input, .form-textarea { width: 100%; padding: 15px; border: 1px solid var(--border-color); background: var(--off-white); }
-        .btn-submit { width: 100%; padding: 20px; background: var(--deep-charcoal); color: #fff; border: none; letter-spacing: 0.3em; cursor: pointer; text-transform: uppercase;}
-
-        footer { padding: 100px 0; text-align: center; border-top: 1px solid var(--border-color); font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-sub); }
-
-        @media (max-width: 1000px) { .profile-grid, .service-grid, .gallery-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .profile-grid, .portfolio-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="container nav-content">
+        <div class="container nav-flex">
             <a href="#" class="logo">KUDO DESIGN</a>
-            <div class="nav-meta">BESPOKE FASHION & TEXTILE ART</div>
+            <div class="nav-info">CHIBA / FUNABASHI</div>
         </div>
     </nav>
 
     <header>
         <div class="container">
             <h1>KUDO DESIGN STUDIO</h1>
-            <p>美 学 的 裁 断 と 纏 う 芸 术</p>
+            <p>美 学 的 裁 断 と 纏 う 芸 術</p>
         </div>
     </header>
 
     <main>
-        <section class="container">
-            <div class="profile-grid">
-                <div class="ceo-img-container">
-                    <img src="wuting.jpg" alt="代表 工藤 恵" class="ceo-img">
-                </div>
-                <div class="ceo-text">
-                    <h3>代表：工藤 恵 (MEGUMI KUDO)</h3>
-                    <p>千葉県船橋市のアトリエを拠点に、20年以上的职业生涯を持つクチュリエール。素材本来の美しさを引き出す立体裁断を追求しています。</p>
-                    <p>「日常に潜む艺术」をテーマに、时代に流されない普遍的なエレガンスを提案し続けています。</p>
-                </div>
+        <section class="container profile-grid">
+            <div class="profile-img">
+                <img src="wuting.jpg" alt="工藤 恵">
+            </div>
+            <div class="profile-text">
+                <h3>代表：工藤 恵 (MEGUMI KUDO)</h3>
+                <p>千葉県船橋市のアトリエを拠点に活動。20年以上のキャリアを持つクチュリエールとして、立体裁断（Moulage）による独自のシルエットを追求しています。</p>
+                <p>一人ひとりの身体に寄り添い、その人の内面を輝かせる一着を仕立てます。</p>
             </div>
         </section>
 
         <div class="philosophy">
             <div class="container">
-                <h2>PHILOSOPHY | 理念</h2>
-                <blockquote>「纏う人の知性は、そのシルエットに現れる」</blockquote>
-                <p>私たちは、ミニマリズムの中にこそ最も強い個性が宿ると信じています。</p>
+                <blockquote>"The beauty of silence."</blockquote>
+                <p>引き算の美学。船橋の静かなアトリエから。</p>
             </div>
         </div>
 
         <section class="container">
-            <h2 class="section-title">PORTFOLIO | 作品集</h2>
-            <div class="gallery-grid">
-                
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
-                    <div class="gallery-caption">Silk Moulage | 2025</div>
-                    <div class="preview-on-hover" style="background-image: url('https://images.unsplash.com/photo-1596706037233-a3d5e08c0ef0?auto=format&fit=crop&w=1000&q=80');"></div>
+            <h2 class="section-title">PORTFOLIO</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80">
+                    <div class="portfolio-tag">Silk Series 2025</div>
                 </div>
-
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
-                    <div class="gallery-caption">Minimalist Wool | 2024</div>
-                    <div class="preview-on-hover" style="background-image: url('https://images.unsplash.com/photo-1616428392186-b511394a5009?auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80">
+                    <div class="portfolio-tag">Winter Minimal 2024</div>
                 </div>
-
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1518118128362-e64e1e8b7921?auto=format&fit=crop&w=1000&q=80" class="gallery-img">
-                    <div class="gallery-caption">Linen Structure | 2024</div>
-                    <div class="preview-on-hover" style="background-image: url('https://images.unsplash.com/photo-1582230230783-65522e86b03f?auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80">
+                    <div class="portfolio-tag">Moulage Art</div>
                 </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80">
+                    <div class="portfolio-tag">Pattern Design</div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1537832816519-689ad163238b?auto=format&fit=crop&w=800&q=80">
+                    <div class="portfolio-tag">Bespoke Detail</div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b830c6050?auto=format&fit=crop&w=800&q=80">
+                    <div class="portfolio-tag">2026 Collection</div>
+                </div>
+            </div>
+        </section>
 
-                <div class="gallery-item">
-                    <img src="
+        <section class="container">
+            <h2 class="section-title">AWARDS</h2>
+            <ul class="awards-list">
+                <li><span>Japan Textile Design Award - Gold</span><span style="color:var(--gold)">2025</span></li>
+                <li><span>Chiba Creative Exhibition - Selected</span><span style="color:var(--gold)">2023</span></li>
+                <li><span>Tokyo Couture Week - New Talent</span><span style="color:var(--gold)">2021</span></li>
+            </ul>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">RESERVATION</h2>
+            <div class="form-box">
+                <form>
+                    <div class="form-group">
+                        <label>お名前 (NAME)</label>
+                        <input type="text" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label>ご連絡先 (CONTACT)</label>
+                        <input type="email" placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <label>メッセージ (MESSAGE)</label>
+                        <textarea rows="4" placeholder="ご予約の希望日時など"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 KUDO DESIGN STUDIO | CHIBA JAPAN</p>
+    </footer>
+
+</body>
+</html>
